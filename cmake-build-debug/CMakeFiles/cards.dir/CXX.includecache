@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/kowusek/CLionProjects/cards/deck.cpp
+deck.h
+/home/kowusek/CLionProjects/cards/deck.h
+
+/home/kowusek/CLionProjects/cards/deck.h
+algorithm
+-
+random
+-
+iterator
+-
+iostream
+-
+
+/home/kowusek/CLionProjects/cards/main.cpp
+iostream
+-
+deck.h
+/home/kowusek/CLionProjects/cards/deck.h
+
