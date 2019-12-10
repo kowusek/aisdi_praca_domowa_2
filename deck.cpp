@@ -6,15 +6,7 @@
 
 bool card::operator<( const card &a ) const {
 
-    if( this->v < a.v )
-        return true;
-
-    else if( this->v == a.v ) {
-
-        if( this->c < a.c )
-            return true;
-    }
-    return false;
+    return this->v < a.v;
 }
 
 std::ostream &operator<<( std::ostream &stream, const card &c ) {
@@ -47,40 +39,24 @@ void deck::shuffle() {
 
 void deck::sort() {
 
-    insertionSort();
+    selectionSort();
 }
 
-void deck::insert( deck::Node *node ) {
 
-    struct Node* current;
+void deck::push( card & value ) {
 
-    if ( a == nullptr || node->data < a->data || (node->data < a->data && a->data < node->data ) ) {
+    auto* temp = new Node;
 
-        node->next = a;
-        a = node;
-    }
-    else {
-
-        current = a;
-
-        while ( current->next!= nullptr && current->next->data < node->data ) {
-
-            current = current->next;
-        }
-
-        node->next = current->next;
-        current->next = node;
-    }
+    temp->data = value;
+    temp->next = a;
+    a = temp;
 }
 
-void deck::insertionSort() {
+void deck::copy() {
 
     for( auto & i : d ) {
 
-        auto temp = new struct Node;
-        temp->data = *i;
-        temp->next = nullptr;
-        deck::insert( temp );
+        push( *i );
     }
 }
 
@@ -93,4 +69,34 @@ void deck::print() {
         std::cout << temp->data << std::endl;
         temp = temp->next;
     }
+    std::cout << std::endl;
+}
+
+void deck::selectionSort() {
+
+    Node* temp = a;
+
+    while ( temp ) {
+
+        Node* min = temp;
+        Node* b = temp->next;
+
+        while ( b ) {
+
+            if ( b->data < min->data )
+                min = b;
+
+            b = b->next;
+        }
+
+        card x = temp->data;
+        temp->data = min->data;
+        min->data = x;
+        temp = temp->next;
+    }
+}
+
+void deck::del() {
+
+    a = nullptr;
 }

@@ -7,6 +7,10 @@ int main() {
 
     d.initDeck();
     d.shuffle();
+    d.copy();
+    d.print();
+    d.del();
+    d.copy();
     d.sort();
     d.print();
 }

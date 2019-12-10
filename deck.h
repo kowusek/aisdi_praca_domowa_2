@@ -55,11 +55,15 @@ public:
 
     void sort();
 
-    void insert( struct Node* node );
-
-    void insertionSort(  );
+    void selectionSort();
 
     void print();
+
+    void copy();
+
+    void push( card & value );
+
+    void del();
 };
 
 
